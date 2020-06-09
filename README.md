@@ -1,4 +1,4 @@
-# angular-practice-task-2
+# angular-task-login-registration
 
 Clone this repo on your local machine <br/>
 Go into folder <br/>
