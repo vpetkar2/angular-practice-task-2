@@ -1,0 +1,46 @@
+<form [formGroup]="RegForm">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="email"><b>Name</b></label>
+    <input type="text" placeholder="Enter Email" name="name" id="name" formControlName="name">
+    <div *ngFor="let error of errorMessages.name" class="error">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+            <small class="error-message">{{error.message}}</small>
+        </ng-container>
+    </div>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" formControlName="email">
+    <div *ngFor="let error of errorMessages.email" class="error">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+        </ng-container>
+    </div>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" id="password" formControlName="password">
+    <div *ngFor="let error of errorMessages.password" class="error">
+        <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+        </ng-container>
+    </div>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="repassword" id="repassword" formControlName="repassword">
+    <div *ngFor="let error of errorMessages.repassword" class="error">
+        <ng-container *ngIf="repassword.hasError(error.type) && (repassword.dirty || repassword.touched)">
+            <small class="error-message">{{error.message}}</small>
+        </ng-container>
+    </div>
+    <hr>
+
+    <button type="submit" (click)="registration()" class="registerbtn">Register</button>
+  </div>
+
+  <div class="container signin">
+    <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
+  </div>
+</form>
